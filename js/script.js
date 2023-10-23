@@ -8,6 +8,8 @@
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
 // Trasformare la stringa foto in una immagine effettiva
 
+const row = document.querySelector('.row');
+
 const ourTeam = [
     
     {
@@ -16,7 +18,7 @@ const ourTeam = [
         picture: "wayne-barnett-founder-ceo.jpg",
     },
     {
-        name: "Angela Carll",
+        name: "Angela Caroll",
         role: "Chief Editor",
         picture: "angela-caroll-chief-editor.jpg",
     },
@@ -43,3 +45,43 @@ const ourTeam = [
 ];
 
 console.log(ourTeam);
+
+for (let a = 0; a < ourTeam.length; a++){
+    stamp(ourTeam[a]);
+}
+
+function stamp(ourTeam){
+
+    let col = document.createElement('div');
+    col.classList.add('col-4');
+    col.innerHTML = 
+    `
+        <div class="card my-3 text-start">
+            <img class="card-img-top" src="img/${ourTeam.picture}" alt="propic">
+                <div class="card-body">
+                    <h4 class="card-title text-center">${ourTeam.name}</h4>
+                    <p class="card-text text-center">${ourTeam.role}</p>
+                </div>
+        </div>
+    `;
+    row.append(col);
+};
+
+// BONUS :
+// Organizzare i singoli membri in card/schede
+// Aggiungere un nuovo membro al team
+
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', function(){
+    
+    const newUser = {
+        name: document.getElementById('name').value,
+        role: document.getElementById('role').value,
+        picture: document.getElementById('picture').value,
+    };
+
+    ourTeam.push(newUser);
+    stamp(newUser);
+    console.log(ourTeam);
+})
