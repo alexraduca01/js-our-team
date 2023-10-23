@@ -57,7 +57,7 @@ function stamp(ourTeam){
     col.innerHTML = 
     `
         <div class="card my-3 text-start">
-            <img class="card-img-top" src="img/${ourTeam.picture}" alt="propic">
+            <img class="card-img-top img-fluid" src="img/${ourTeam.picture}" alt="propic">
                 <div class="card-body">
                     <h4 class="card-title text-center">${ourTeam.name}</h4>
                     <p class="card-text text-center">${ourTeam.role}</p>
@@ -83,5 +83,11 @@ btn.addEventListener('click', function(){
 
     ourTeam.push(newUser);
     stamp(newUser);
-    console.log(ourTeam);
+    reset();
 })
+
+function reset(){
+    document.getElementById('name').value = '';
+    document.getElementById('role').value = '';
+    document.getElementById('picture').value = '';
+}
