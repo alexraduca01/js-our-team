@@ -50,17 +50,17 @@ for (let a = 0; a < ourTeam.length; a++){
     stamp(ourTeam[a]);
 }
 
-function stamp(ourTeam){
+function stamp(object){
 
     let col = document.createElement('div');
     col.classList.add('col-4');
     col.innerHTML = 
     `
         <div class="card my-3 text-start">
-            <img class="card-img-top img-fluid" src="img/${ourTeam.picture}" alt="propic">
+            <img class="card-img-top img-fluid" src="img/${object.picture}" alt="propic">
                 <div class="card-body">
-                    <h4 class="card-title text-center">${ourTeam.name}</h4>
-                    <p class="card-text text-center">${ourTeam.role}</p>
+                    <h4 class="card-title text-center">${object.name}</h4>
+                    <p class="card-text text-center">${object.role}</p>
                 </div>
         </div>
     `;
